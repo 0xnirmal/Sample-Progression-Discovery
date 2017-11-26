@@ -7,17 +7,22 @@ git clone https://github.com/nkrishn9/Sample-Progression-Discovery.git
 chmod -x run.sh
 source run.sh
 ```
-This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were generated from the Jupyter notebook provided; however, the raw data used to generate them is printed when the py file is run. 
+This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were generated from the Jupyter notebook provided; however, the raw data used to generate figure 2 is printed when the py file is run. 
 
 # Part II: Reproducibility #
 
-## Process Description ##
-I recommend taking a peek at the age_prediction.ipynb to gain an understanding of the process, not the age_prediction.py because the notebook contains significant markdown comments. 
+I recommend taking a peek at the spd.ipynb (using the jupyter notebook command) to gain an understanding of the process, not the spd.py because the notebook contains significant markdown comments. 
 
-### Data Processing ###
-This step was a fairly standard approach to a machine learning problem. First, we generated our design matrices for each of our tissues (separately), orienting them such that rows represented patients and columns represented genes. We then constructed our labels for each patient. This was slightly problematic because the reported GTEx ages are 10-year ranges, such at 60-69. Since we cannot infer anything else, we chose to represent this just as the first number in the range. The decision to represent age as a continuous value rather than a classification label is important because there is inherently a hierarchical structure to age. The age range 70-79 not only communicates belonging to class, but it also communicates that it is greater than the class 60-69 and less than the class 80-89. For this reason, it only makes sense to model the problem as a regression. 
+## Paper Selection ##
+I chose to replicate sample progression discovery (SPD) method from "Discovering Biological Progression Underlying Microarray Samples" paper by Qiu et al. Given that I will soon need to run this process using the code provided from their [website](http://pengqiu.gatech.edu/software/SPD/index.html) on the iPSC data, I thought this would be a useful paper to reproduce to broaden my understanding of the process works. 
 
-We did not transform the data other than the labels, because the GTEx data is already mean centered and normalized. In terms of splitting the data, we performed a standard 70% training 30% testing split for each tissue dataset, in order to evaluate our model. On the training data, we then performed basic feature selection using an f-regression between gene and label. We chose to use an f-regression because the model we are using the predict age is a linear model (ridge regression). Therefore, we want to select features that are univariately correlated with our label in order for our model to get a good signal. We selected the top 1000 genes.
+The goal of SPD is "to discover biological progression from gene expression microarray data." It accomplishes this by four steps: 
+1) cluster genes into modules of co-expressed genes
+2) construct minimum spanning tree (MST) for each module
+3) select modules that supports common MSTs
+4) reconstruct an overall MST based on all the genes of all the selected modules
+
+
 
 ### Cross-Validation Hyperparameter Tuning ###
 The training data for each tissue was split using leave-one-out cross-validation in order to evaluate regularization parameters (alphas). We evaluated alphas across different scales (0.1, 1.0, 10.0, 100), and used the alpha for each tissue that resulted in the highest root mean-squared error. 

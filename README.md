@@ -1,15 +1,18 @@
 
 # Advanced Topics in Genomic Data Analysis- Mini Project 2 #
 
-# Running Instructions #
+# Part I: Rewriting Methods #
+Lorem Ipsdum 
+
+# Part II: Reproducibility #
+
+## Running Instructions ##
 ```
 git clone https://github.com/nkrishn9/Sample-Progression-Discovery.git
 chmod -x run.sh
 source run.sh
 ```
 This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were generated from the Jupyter notebook provided; however, the raw data used to generate figure 2 is printed when the py file is run. 
-
-# Part II: Reproducibility #
 
 If you would like to see my implementation, I recommend taking a peek at the spd.ipynb (using the jupyter notebook command), not the spd.py because the notebook contains significant markdown comments. 
 
@@ -56,6 +59,7 @@ Using the software package, there were 54 resulting co-expressed gene modules ge
 It was challenging to reproduce the SPD results on the simulated data even given the source code used by the researchers. Given only four hours, it was difficult to understand why my results and the provided results did not match, primarily because of the disorganization of the provided code base and lacking documentation. However, I think given more time it is reasonable that I could have better understood the provided source code and found the disparities in my own code accordingly. 
 
 I think this exercise has taught me a lot about code structuring and documentation--if these are lacking, it makes reproducing your study very difficult with limited time constraints. 
+
 
 
 

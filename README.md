@@ -1,16 +1,15 @@
 
 # Advanced Topics in Genomic Data Analysis- Mini Project 2 #
 
-## Running Instructions ##
+# Running Instructions #
 ```
 git clone https://github.com/nkrishn9/Sample-Progression-Discovery.git
 chmod -x run.sh
 source run.sh
 ```
-This code is intended to run on the JHU CS ugrad cluster. The figures 1, 1A, and 2 will be generated in the results directory.
+This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were generated from the Jupyter notebook provided; however, the raw data used to generate them is printed when the py file is run. 
 
-## Abstract ##
-In this project, we attempted to use GTEx data to predict the age of a patient given their cis-eQTL gene expression data. This was done on each of four tissue types-adipose subcutaneous, muscle skeletal, thyroid, whole blood. We used a simple model, ridge regression, trained on the top 1000 genes with the highest univariate correlation with our label, age. Cross-validation on the training data was used to tune the alpha hyperparameter (regularization constant), and was then used along with the beta coefficients to predict age in our testing set. Root mean squared error was reported across different training sizes and thyroid appears to be the optimal tissue for predicting age, across training size setups. 
+# Part II: Reproducibility #
 
 ## Process Description ##
 I recommend taking a peek at the age_prediction.ipynb to gain an understanding of the process, not the age_prediction.py because the notebook contains significant markdown comments. 

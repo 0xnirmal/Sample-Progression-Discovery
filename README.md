@@ -53,7 +53,11 @@ Using the software package, there were 54 resulting co-expressed gene modules ge
 
 
 ## Reflection on Replication ##
-fd
+It was challenging to reproduce the SPD results on the simulated data even given the source code used by the researchers. Given only four hours, it was difficult to understand why my results and the provided results did not match, primarily because of the disorganization of the provided code base and lacking documentation. However, I think given more time it is reasonable that I could have better understood the provided source code and found the disparities in my own code accordingly. 
+
+I think this exercise has taught me a lot about code structuring and documentation--if these are lacking, it makes reproducing your study very difficult with limited time constraints. 
+
+
 
 [figure0]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_0.png
 [figure1]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_1.png

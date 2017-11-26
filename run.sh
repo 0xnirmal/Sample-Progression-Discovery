@@ -1,2 +1,3 @@
 #!/bin/bash
-python -W ignore src/spd.py
+cd src/
+python -W ignore spd.py

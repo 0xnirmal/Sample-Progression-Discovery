@@ -36,10 +36,12 @@ In order to create the overall MST based on all of the genes from the selected m
 ### Figure 1: Overall MST using Matlab Software Package ###
 ![figure1]
 
-As you can see, 
+As you can see, the software package is fairly successful at recovering the true progression of the cells. It only breaks continuity when there are edges from 1 to 2 and from 1 to 3 instead of from 1 to 2 and from 2 to 3 as well as edges from 14 to 16 and from 16 to 15 instead of eges from 14 to 15 and from 15 to 16. Other than these instances, the resulting graph completely captures the effect of time on progression. 
 
 ### Figure 2: Overall MST using my code ####
 ![figure2]
+
+My results replicate the celluar progression well--there is full continuity from time step 0 to 14 with a jump to 16 after 14 and then a reversion to 15. This is nearly identical to the results in the provided code.  I tried to understand why the MSTs generated were different, but couldn't seem to identify the difference between the two methods--both my code and the provided source code use Boruvska's algorithm using the selected genes with Euclidean distance as the edge weight to generate the MST. 
 
 
 ### Cross-Validation Hyperparameter Tuning ###

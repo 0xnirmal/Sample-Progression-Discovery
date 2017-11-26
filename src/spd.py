@@ -5,8 +5,8 @@ import argparse
 import matplotlib.pyplot as plt 
 plt.style.use("ggplot")
 import math
-import scipy
 import scipy.io as sio
+from scipy import spatial
 from collections import defaultdict
 import matplotlib as mpl
 # import networkx as nx
@@ -46,7 +46,7 @@ def get_adj_mat_from_df(df):
     adj_mat = pd.DataFrame([], index=df.columns, columns=df.columns)
     for i in df:
         for j in df:
-            adj_mat.loc[i, j] = float(scipy.spatial.distance.euclidean(df[i], df[j]))
+            adj_mat.loc[i, j] = float(spatial.distance.euclidean(df[i], df[j]))
     return adj_mat
 
 adj_mat = get_adj_mat_from_df(df)

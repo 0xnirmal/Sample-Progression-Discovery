@@ -11,7 +11,7 @@ This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were g
 
 # Part II: Reproducibility #
 
-I recommend taking a peek at the spd.ipynb (using the jupyter notebook command) to gain an understanding of the process, not the spd.py because the notebook contains significant markdown comments. 
+If you would like to see my implementation, I recommend taking a peek at the spd.ipynb (using the jupyter notebook command), not the spd.py because the notebook contains significant markdown comments. 
 
 ## Paper Selection ##
 I chose to replicate sample progression discovery (SPD) method from ["Discovering Biological Progression Underlying Microarray Samples"](https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/spd.PDF) paper by Qiu et al. Given that I will soon need to run this process using their Matlab software package provided through their [website](http://pengqiu.gatech.edu/software/SPD/index.html) on the iPSC data, I thought this would be a useful paper to select in order to broaden my understanding of how the process works. 

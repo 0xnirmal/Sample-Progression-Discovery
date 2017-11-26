@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import sys
 import argparse
-import seaborn as sns
 import matplotlib.pyplot as plt 
 plt.style.use("ggplot")
 import math

@@ -28,7 +28,6 @@ Once the alpha parameters had been selected using CV, we trained 4 different rid
 
 Once the models were trained across our different tranings data sized increments, we predicting on our testing splits and reported the root mean squared errors for each, seen in figure 1 (for muscle-skeletal) and figure 1A (all tissues) below: 
 ![figure1]
-![figure1a]
 
 We trained again using all of the samples in each training split for each tissue and also using the largest common number of training examples across tissues. The results can be seen in figure 2 below: 
 

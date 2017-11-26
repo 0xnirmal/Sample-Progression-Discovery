@@ -14,18 +14,32 @@ This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were g
 I recommend taking a peek at the spd.ipynb (using the jupyter notebook command) to gain an understanding of the process, not the spd.py because the notebook contains significant markdown comments. 
 
 ## Paper Selection ##
-I chose to replicate sample progression discovery (SPD) method from ["Discovering Biological Progression Underlying Microarray Samples"](https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/spd.PDF) paper by Qiu et al. Given that I will soon need to run this process using the code provided from their [website](http://pengqiu.gatech.edu/software/SPD/index.html) on the iPSC data, I thought this would be a useful paper to select in order to broaden my understanding of the process works. 
+I chose to replicate sample progression discovery (SPD) method from ["Discovering Biological Progression Underlying Microarray Samples"](https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/spd.PDF) paper by Qiu et al. Given that I will soon need to run this process using their Matlab software package provided through their [website](http://pengqiu.gatech.edu/software/SPD/index.html) on the iPSC data, I thought this would be a useful paper to select in order to broaden my understanding of how the process works. 
 
 The goal of SPD is "to discover biological progression from gene expression microarray data." It accomplishes this by four steps: 
 1) cluster genes into modules of co-expressed genes
 2) construct minimum spanning tree (MST) for each module
-3) select modules that supports common MSTs
+3) select modules that support common MSTs
 4) reconstruct an overall MST based on all the genes of all the selected modules
 
 ### Figure 0: SPD Methods ###
 ![figure0]
 
+Since this is a fairly long, multifaceted process and were only given four hours- I chose to replicate steps 4 and 1 and compare that with the results from the provided software package. The software package includes a simulated data file on cell progression, which I used in all of my methods. 
 
+## Replicating Step 4- Reconstructing an overall MST based on all the genes of all the selected modules ##
+
+I began with step 4 because it is fairly independent of all the other steps. Once the modules have been selected, according to the paper, you simply use the reduced data matrix [feature selected genes x samples] to produce a MST. To create the modules, I used the software package on the simulated data. I selected 6 modules (using the process described in the paper- visual inspection), which provided me with a list of 630 genes to use. I outputted this list of genes from the Matlab software package to my Jupyter notebook and created the reduced matrix accordingly. 
+
+In order to create the overall MST based on all of the genes from the selected modules, the paper uses Boruvka’s algorithm, a standard greedy algorithm. Using the software package with the selected modules, the resulting progression graph can be seen below.
+
+### Figure 1: Overall MST using Matlab Software Package ###
+![figure1]
+
+As you can see, 
+
+### Figure 2: Overall MST using my code ####
+![figure2]
 
 
 ### Cross-Validation Hyperparameter Tuning ###
@@ -33,10 +47,6 @@ The training data for each tissue was split using leave-one-out cross-validation
 
 ### Training/ Prediction ###
  
-![figure1]
-
-
-![figure2]
 
 
 ## Discussion ##

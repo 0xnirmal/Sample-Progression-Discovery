@@ -60,7 +60,8 @@ It was challenging to reproduce the SPD results on the simulated data even given
 
 I think this exercise has taught me a lot about code structuring and documentation--if these are lacking, it makes reproducing your study very difficult with limited time constraints. 
 
-
+# Part III: Final Project Proposal #
+Lorem Ipsdum 
 
 
 [figure0]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_0.png

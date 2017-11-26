@@ -14,13 +14,17 @@ This code is intended to run on the JHU CS ugrad cluster. Figures 1 and 2 were g
 I recommend taking a peek at the spd.ipynb (using the jupyter notebook command) to gain an understanding of the process, not the spd.py because the notebook contains significant markdown comments. 
 
 ## Paper Selection ##
-I chose to replicate sample progression discovery (SPD) method from "Discovering Biological Progression Underlying Microarray Samples" paper by Qiu et al. Given that I will soon need to run this process using the code provided from their [website](http://pengqiu.gatech.edu/software/SPD/index.html) on the iPSC data, I thought this would be a useful paper to reproduce to broaden my understanding of the process works. 
+I chose to replicate sample progression discovery (SPD) method from ["Discovering Biological Progression Underlying Microarray Samples"](https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/spd.PDF) paper by Qiu et al. Given that I will soon need to run this process using the code provided from their [website](http://pengqiu.gatech.edu/software/SPD/index.html) on the iPSC data, I thought this would be a useful paper to select in order to broaden my understanding of the process works. 
 
 The goal of SPD is "to discover biological progression from gene expression microarray data." It accomplishes this by four steps: 
 1) cluster genes into modules of co-expressed genes
 2) construct minimum spanning tree (MST) for each module
 3) select modules that supports common MSTs
 4) reconstruct an overall MST based on all the genes of all the selected modules
+
+### Figure 0: SPD Methods ###
+![figure0]
+
 
 
 
@@ -47,5 +51,6 @@ This feature mapping would allow you to capture squared effects of features, whi
 
 In terms of the biological interpretation of thyroid being the best predictor, what this indicates to us is that the genes expressed in the thyroid vary the most (linearly) across age. That is, the genes expressed in the thyroid either change in response to or drive the aging process. In the other tissues, our model does a poorer job of picking up this age-varying process of gene expression. This could be a result of thyroid in fact being the best predictor, or that our model is not sufficient to pick up the signal in the other tissues (i.e. non-linear signal). Consequently, a natural extension of this project is to use other non-linear models and see how this affects the RMSE across tissues. 
 
+[figure0]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_0.png
 [figure1]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_1.png
 [figure2]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_2.png

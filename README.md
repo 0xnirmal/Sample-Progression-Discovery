@@ -29,25 +29,24 @@ Since this is a fairly long, multifaceted process and were only given four hours
 
 ## Replicating Step 4- Reconstructing an overall MST based on all the genes of all the selected modules ##
 
-I began with step 4 because it is fairly independent of all the other steps. Once the modules have been selected, according to the paper, you simply use the reduced data matrix [feature selected genes x samples] to produce a MST. To create the modules, I used the software package on the simulated data. I selected 6 modules (using the process described in the paper- visual inspection), which provided me with a list of 630 genes to use. I outputted this list of genes from the Matlab software package to my Jupyter notebook and created the reduced matrix accordingly. 
+I began with step 4 because it is fairly independent of all the other steps. Once the modules have been selected, according to the paper, you simply translate the reduced data matrix [feature selected genes x samples] to a graph representation with nodes as samples and edge weights as Euclidean distance between samples which you use to produce a MST. 
 
-In order to create the overall MST based on all of the genes from the selected modules, the paper uses Boruvka’s algorithm, a standard greedy algorithm. Using the software package with the selected modules, the resulting progression graph can be seen below.
+To create the modules, I used the software package on the simulated data. I selected 6 modules (using the process described in the paper- visual inspection), which provided me with a list of 630 genes to use. I outputted this list of genes from the Matlab software package to my Jupyter notebook and created the reduced matrix accordingly. Using the reduced matrix, I translated this to the graph representation fairly easily. 
+
+In order to create the overall MST using the graph representation, the paper uses Boruvka’s algorithm, a standard greedy algorithm. Using the software package with the selected modules, the resulting progression graph can be seen below.
 
 ### Figure 1: Overall MST using Matlab Software Package ###
 ![figure1]
 
-As you can see, the software package is fairly successful at recovering the true progression of the cells. It only breaks continuity when there are edges from 1 to 2 and from 1 to 3 instead of from 1 to 2 and from 2 to 3 as well as edges from 14 to 16 and from 16 to 15 instead of eges from 14 to 15 and from 15 to 16. Other than these instances, the resulting graph completely captures the effect of time on progression. 
+As you can see, the software package is fairly successful at recovering the true progression of the cells. It only breaks continuity where there are edges from 1 to 2 and from 1 to 3 instead of from 1 to 2 and from 2 to 3 as well as edges from 14 to 16 and from 16 to 15 instead of eges from 14 to 15 and from 15 to 16. Other than these instances, the resulting graph completely captures the effect of time on progression. 
 
 ### Figure 2: Overall MST using my code ####
 ![figure2]
 
-My results replicate the celluar progression well--there is full continuity from time step 0 to 14 with a jump to 16 after 14 and then a reversion to 15. This is nearly identical to the results in the provided code.  I tried to understand why the MSTs generated were different, but couldn't seem to identify the difference between the two methods--both my code and the provided source code use Boruvska's algorithm using the selected genes with Euclidean distance as the edge weight to generate the MST. 
+My results replicate the celluar progression well--there is full continuity from time step 0 to 14 with a jump to 16 after 14 and then a reversion to 15. This is nearly identical to the results in the provided code.  I spent a significant amount of time trying to understand why the MSTs generated were different, but couldn't seem to identify the difference between the two methods--both my code and the provided software package use Boruvska's algorithm with Euclidean distance as the edge weight to generate the MST. I decided to move on and try to replicate step 1 as well, since I did not want to use all four hours on debugging this.
 
-
-### Cross-Validation Hyperparameter Tuning ###
-The training data for each tissue was split using leave-one-out cross-validation in order to evaluate regularization parameters (alphas). We evaluated alphas across different scales (0.1, 1.0, 10.0, 100), and used the alpha for each tissue that resulted in the highest root mean-squared error. 
-
-### Training/ Prediction ###
+## Replicating Step 1- Cluster genes into modules of co-expressed genes ##
+lorem ipsdum 
  
 
 

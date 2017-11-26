@@ -25,7 +25,7 @@ The goal of SPD is "to discover biological progression from gene expression micr
 ### Figure 0: SPD Methods ###
 ![figure0]
 
-Since this is a fairly long, multifaceted process and were only given four hours- I chose to replicate steps 4 and 1 and compare that with the results from the provided software package. The software package includes a simulated data file on cell progression, which I used in all of my methods. 
+Since this is a fairly long, multifaceted process and we were only given four hours- I chose to replicate steps 4 and 1 and compare with the results from the provided software package. The software package includes a simulated data file on cell progression, which I used in all of my methods. 
 
 ## Replicating Step 4- Reconstructing an overall MST based on all the genes of all the selected modules ##
 
@@ -46,8 +46,9 @@ As you can see, the software package is fairly successful at recovering the true
 My results replicate the celluar progression well--there is full continuity from time step 0 to 14 with a jump to 16 after 14 and then a reversion to 15. This is nearly identical to the results in the provided code.  I spent a significant amount of time trying to understand why the MSTs generated were different, but couldn't seem to identify the difference between the two methods--both my code and the provided software package use Boruvska's algorithm with Euclidean distance as the edge weight to generate the MST. I decided to move on and try to replicate step 1 as well, since I did not want to use all four hours on debugging this.
 
 ## Replicating Step 1- Cluster genes into modules of co-expressed genes ##
-lorem ipsdum 
- 
+SPD uses a augmentation of k-means as a clustering method for co-expressed described directly in the paper: 
+> Given an N by M gene expression data matrix, we perform the k-means algorithm L times, with random initialization, to cluster the N genes into k = 2 clusters. Clustering results are arranged into an N by L matrix, where the (i,j) element is the cluster assignment of gene i in the j’th run of k-means. In order to draw the consensus of the L runs of k-means, we apply k-means again based on the N by L matrix, the collection of clustering results of the L runs, to divide genes into two clusters. For each of the two clusters, the coherence is computed as the average Pearson correlation between each gene in the cluster and the cluster mean. If the coherence of a cluster is higher than a pre-specified threshold c1, this cluster is considered to be a coherent gene module. Otherwise, this cluster is further partitioned by iterating the algorithm. After the iterative process ends, we examine the resulting coherent modules pairwisely. If the Pearson correlation of two modules’ centers is higher than a pre-specified threshold c2, these two modules are merged. This step iterates until no module-pair shares correlation higher than c2. The stopping criterion of cluster coherence guarantees that all resulting modules satisfy the pre-specified coherence threshold c1. Modules that share correlation higher than c2 are merged, so that the resulting gene modules are not highly correlated with each other. We typically set the algorithm parameters to the following values: L~200, c1 ~0:7, c2 ~0:9:
+
 
 
 ## Discussion ##

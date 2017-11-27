@@ -75,9 +75,18 @@ It was challenging to reproduce the SPD results on the simulated data even given
 I think this exercise has taught me a lot about code structuring and documentation--if these are lacking, it makes reproducing your study very difficult with limited time constraints. 
 
 # Part III: Final Project Proposal #
-Lorem Ipsdum 
+For my final project, I would like to evaluate the predictive accuracy of Gaussian Processes (GP) on gene expression data for the iPSC dataset. GPs have quickly gained acclaim in the scientific community for their flexibility and predictive accuracy; however, I am curious how they compare to traditional models in this domain. Specifically, the iPSC dataset contains daily (t=0 to t=15) gene expression data for iPSCs undergoing differentiation into cardiomycte cells. In order to determine how well this model can predict expression, for each gene and cell line, I will hold a single time step out and train a model using all N-1 data points between time (the x) and expression (the y). Then, using this model, I will predict expression of this gene at that time step and repeat for all time steps. I will do this for all genes x cell lines and then compute error statistics accordingly. This same process will be repeated with traditional models like linear regression and the results will be compared.
 
+I plan on varying my kernel and hyperparameters for the GPs and testing across a number of configurations. 
+
+
+
+![figure3]
+
+![figure4]
 
 [figure0]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_0.png
 [figure1]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_1.png
 [figure2]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_2.png
+[figure3]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/gp_1.png
+[figure4]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/gp_2.png

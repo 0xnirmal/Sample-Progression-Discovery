@@ -23,6 +23,7 @@ Rewritten excerpt:
 ## Running Instructions ##
 ```
 git clone https://github.com/nkrishn9/Sample-Progression-Discovery.git
+cd Sample-Progression-Discovery/
 chmod -x run.sh
 source run.sh
 ```

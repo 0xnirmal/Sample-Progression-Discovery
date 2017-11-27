@@ -2,7 +2,9 @@
 # Advanced Topics in Genomic Data Analysis- Mini Project 2 #
 
 # Part I: Rewriting Methods #
-Original Paper:
+Original excerpt from ["RSEM: accurate transcript quantification from
+RNA-Seq data with or without a reference
+genome"](https://d1b10bmlvqabco.cloudfront.net/attach/j6zot2yz1ti44r/j783o2sgiadfq/j9e774zkefp6/RSEM_Transcript_Quantification.pdf) by Li et al:
 > Gibbs sampling: 
 
 > In addition to computing ML estimates, RSEM uses a Bayesian version of its model to compute PME and 95% CIs of abundances. In the Bayesian model, the θ parameters are treated as latent random variables with a Dirichlet prior distribution. The parameters of the Dirichlet distribution (a) are set to one, which makes the prior equivalent to a uniform distribution and the maximum a posteriori estimates of θ equal to the ML estimates. 

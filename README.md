@@ -2,7 +2,14 @@
 # Advanced Topics in Genomic Data Analysis- Mini Project 2 #
 
 # Part I: Rewriting Methods #
-Lorem Ipsdum 
+Original Paper:
+> Gibbs sampling: 
+
+> In addition to computing ML estimates, RSEM uses a Bayesian version of its model to compute PME and 95% CIs of abundances. In the Bayesian model, the θ parameters are treated as latent random variables with a Dirichlet prior distribution. The parameters of the Dirichlet distribution (a) are set to one, which makes the prior equivalent to a uniform distribution and the maximum a posteriori estimates of θ equal to the ML estimates. 
+
+> RSEM computes PMEs and 95% CIs with a two-stagesampling process. First, a standard application of the collapsed Gibbs sampling algorithm [42] is used to obtain a sampled set of count vectors, where each vector represents the number of fragments that are mapped to each transcript. During each round of the Gibbs sampling algorithm, the true mapping of each fragment is resampled given the current mappings of all other fragments. The initial mapping of each fragment is sampled according to the ML parameters computed by the EM algorithm. The algorithm is run to sample 1000 count vectors. 
+
+> The second stage of the sampling process involves sampling values of θ given each count vector sampled from the first stage. Given a count vector, c, a θ vector is sampled from its posterior distribution, which is simply a Dirichlet distribution with ai = ci + 1. For each count vector, 50 θ vectors are sampled, resulting in 50,000 total samples for θ. The θ samples are converted to transcript fractions (τ) and then summarized to produce a PME and 95% CI for the abundance of each transcript.
 
 # Part II: Reproducibility #
 

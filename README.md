@@ -75,15 +75,21 @@ It was challenging to reproduce the SPD results on the simulated data even given
 I think this exercise has taught me a lot about code structuring and documentation--if these are lacking, it makes reproducing your study very difficult with limited time constraints. 
 
 # Part III: Final Project Proposal #
-For my final project, I would like to evaluate the predictive accuracy of Gaussian Processes (GP) on gene expression data for the iPSC dataset. GPs have quickly gained acclaim in the scientific community for their flexibility and predictive accuracy; however, I am curious how they compare to traditional models in this domain. Specifically, the iPSC dataset contains daily (t=0 to t=15) gene expression data for iPSCs undergoing differentiation into cardiomycte cells. In order to determine how well this model can predict expression, for each gene and cell line, I will hold a single time step out and train a model using all N-1 data points between time (the x) and expression (the y). Then, using this model, I will predict expression of this gene at that time step and repeat for all time steps. I will do this for all genes x cell lines and then compute error statistics accordingly. This same process will be repeated with traditional models like linear regression and the results will be compared.
+For my final project, I would like to evaluate the predictive accuracy of Gaussian Processes (GP) on gene expression data for the iPSC dataset. GPs have quickly gained acclaim in the scientific community for their flexibility and predictive accuracy; however, I am curious as to how they compare to traditional models in this domain. Specifically, the iPSC dataset contains daily (t=0 to t=15) gene expression data for iPSCs undergoing differentiation into cardiomycte cells. In order to determine how well this model can predict expression, for each gene and cell line, I will hold a single time step out and train a model using all N-1 data points between time (the x) and expression (the y). Then, using this model, I will predict expression of this gene at that time step and repeat for all time steps. I will do this for all genes x cell lines and then compute error statistics accordingly. This same process will be repeated with traditional models like linear regression and the results will be compared.
 
-I plan on varying my kernel and hyperparameters for the GPs and testing across a number of configurations. 
+I plan on varying my kernel and hyperparameters for the GPs and testing across a number of configurations. However, the real goal of this project is to determine whether the flexibility of the GP enables great predictive accuracy, or whether it dramatically encourages overfitting. 
 
+In figure 3, we can see the flexibility the GP has to fit the data. Figure 3 contains a fully fitted model for both a GP (RBF kernel) and a basic linear regression. As we can see, the GP perfectly fits all the points while the linear regression in this situation struggles to reconsole the non-linear looking progression. 
 
-
+### Figure 3 ###
 ![figure3]
 
+However, in figure 4, we know hold a sample out and train on all other samples and then predict on the held out sample. In this situation, it appears the performance between the GP and linear model is significantly closer, indicating that GP may be overfitting and a linear model may perform better in this situation.
+
+### Figure 4 ###
 ![figure4]
+
+This study aims to take a deeper look at this question in this domain. 
 
 [figure0]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_0.png
 [figure1]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_1.png

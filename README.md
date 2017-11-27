@@ -84,7 +84,7 @@ In figure 3, we can see the flexibility the GP has to fit the data. Figure 3 con
 ### Figure 3 ###
 ![figure3]
 
-However, in figure 4, we know hold a sample out and train on all other samples and then predict on the held out sample. In this situation, it appears the performance between the GP and linear model is significantly closer, indicating that GP may be overfitting and a linear model may perform better in this situation.
+However, in figure 4, we now hold a sample out and train on all other samples and then predict on the held out sample. In this situation, it appears the performance between the GP and linear model is significantly closer, indicating that GP may be overfitting and a linear model may perform better in this situation.
 
 ### Figure 4 ###
 ![figure4]

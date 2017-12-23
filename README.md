@@ -1,23 +1,6 @@
 
 # Advanced Topics in Genomic Data Analysis- Mini Project 2 #
 
-# Part I: Rewriting Methods #
-Original excerpt from ["RSEM: accurate transcript quantification from
-RNA-Seq data with or without a reference
-genome"](https://d1b10bmlvqabco.cloudfront.net/attach/j6zot2yz1ti44r/j783o2sgiadfq/j9e774zkefp6/RSEM_Transcript_Quantification.pdf) by Li et al:
-> Gibbs sampling: 
-
-> In addition to computing ML estimates, RSEM uses a Bayesian version of its model to compute PME and 95% CIs of abundances. In the Bayesian model, the θ parameters are treated as latent random variables with a Dirichlet prior distribution. The parameters of the Dirichlet distribution (a) are set to one, which makes the prior equivalent to a uniform distribution and the maximum a posteriori estimates of θ equal to the ML estimates. 
-
-> RSEM computes PMEs and 95% CIs with a two-stage sampling process. First, a standard application of the collapsed Gibbs sampling algorithm is used to obtain a sampled set of count vectors, where each vector represents the number of fragments that are mapped to each transcript. During each round of the Gibbs sampling algorithm, the true mapping of each fragment is resampled given the current mappings of all other fragments. The initial mapping of each fragment is sampled according to the ML parameters computed by the EM algorithm. The algorithm is run to sample 1000 count vectors. 
-
-Rewritten excerpt:
-> Gibbs sampling:
-
-> In the standard maximum likelihood (ML) approach for parameter estimation, typically only point estimates of the θ parameters are available. Therefore, RSEM also leverages a Bayesian approach in order to compute 95% credible intervals (CI) around the posterior mean estimate (PME). The prior distribution for the the θ parameters in the Bayesian approach are all Dirichlet prior distributions set to one. A Dirichlet distribution set to one is equivalent to a uniform distribution, meaning our prior is non-informative. As a consequence of this non-informative prior, the maximum a posteriori estimates of θ are equal to the ML estimates, with the added benefit of 95% CIs around the posterior mean. 
-
-> RSEM computes the PMEs and 95% CIs for the Bayesian approach with a two-stage sampling process. First, a standard application of the collapsed Gibbs sampling algorithm is used to sample from the posterior distribution of count vectors. A sampled count vector represents the number of fragments that are mapped to each transcript. This allows us to easily construct CIs and a PME because we can simply compute quantiles of the sampled set of count vectors. For each iteration in the Gibbs sampling algorithm, the true mapping of each fragment is resampled given the current mappings of all other fragments. The initial mapping of each fragment is sampled according to the ML parameters computed by the EM algorithm. The algorithm is run with 1000 iterations. 
-
 # Part II: Reproducibility #
 
 ## Running Instructions ##
@@ -91,6 +74,23 @@ However, in figure 4, we now hold a sample out and train on all other samples an
 ![figure4]
 
 This study aims to take a deeper look at this question in this domain. 
+
+# Part I: Rewriting Methods #
+Original excerpt from ["RSEM: accurate transcript quantification from
+RNA-Seq data with or without a reference
+genome"](https://d1b10bmlvqabco.cloudfront.net/attach/j6zot2yz1ti44r/j783o2sgiadfq/j9e774zkefp6/RSEM_Transcript_Quantification.pdf) by Li et al:
+> Gibbs sampling: 
+
+> In addition to computing ML estimates, RSEM uses a Bayesian version of its model to compute PME and 95% CIs of abundances. In the Bayesian model, the θ parameters are treated as latent random variables with a Dirichlet prior distribution. The parameters of the Dirichlet distribution (a) are set to one, which makes the prior equivalent to a uniform distribution and the maximum a posteriori estimates of θ equal to the ML estimates. 
+
+> RSEM computes PMEs and 95% CIs with a two-stage sampling process. First, a standard application of the collapsed Gibbs sampling algorithm is used to obtain a sampled set of count vectors, where each vector represents the number of fragments that are mapped to each transcript. During each round of the Gibbs sampling algorithm, the true mapping of each fragment is resampled given the current mappings of all other fragments. The initial mapping of each fragment is sampled according to the ML parameters computed by the EM algorithm. The algorithm is run to sample 1000 count vectors. 
+
+Rewritten excerpt:
+> Gibbs sampling:
+
+> In the standard maximum likelihood (ML) approach for parameter estimation, typically only point estimates of the θ parameters are available. Therefore, RSEM also leverages a Bayesian approach in order to compute 95% credible intervals (CI) around the posterior mean estimate (PME). The prior distribution for the the θ parameters in the Bayesian approach are all Dirichlet prior distributions set to one. A Dirichlet distribution set to one is equivalent to a uniform distribution, meaning our prior is non-informative. As a consequence of this non-informative prior, the maximum a posteriori estimates of θ are equal to the ML estimates, with the added benefit of 95% CIs around the posterior mean. 
+
+> RSEM computes the PMEs and 95% CIs for the Bayesian approach with a two-stage sampling process. First, a standard application of the collapsed Gibbs sampling algorithm is used to sample from the posterior distribution of count vectors. A sampled count vector represents the number of fragments that are mapped to each transcript. This allows us to easily construct CIs and a PME because we can simply compute quantiles of the sampled set of count vectors. For each iteration in the Gibbs sampling algorithm, the true mapping of each fragment is resampled given the current mappings of all other fragments. The initial mapping of each fragment is sampled according to the ML parameters computed by the EM algorithm. The algorithm is run with 1000 iterations. 
 
 [figure0]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_0.png
 [figure1]: https://github.com/nkrishn9/Sample-Progression-Discovery/blob/master/figures/figure_1.png
